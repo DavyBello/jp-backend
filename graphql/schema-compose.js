@@ -19,6 +19,7 @@ const { authAccess } = require('./logic/authentication');
 const {
 	UserTC,
 	CandidateTC,
+	AffiliateTC,
 	ViewerCandidateTC,
 	ViewerAffiliateTC,
 
@@ -71,12 +72,21 @@ GQC.rootMutation().addFields({
 	// unauthorized Candidate Mutations
 	candidateCreateAccount: CandidateTC.getResolver('createAccount'),
 
-	//authorized User Mutations
+	// unauthorized Candidate Mutations
+	affiliateCreateAccount: AffiliateTC.getResolver('createAccount'),
+
+	// authorized Candidate Mutations
 	...authAccess({sourceUserType: 'Candidate'}, {
 		candidateResendActivationLink: UserTC.getResolver('sendUserActivationLink'),
 		candidateUpdateSelf: updateSelf({TC: CandidateTC}),
 		candidateFindOrCreateJpPaymentRecord: JpPaymentTC.getResolver('findOrCreateJpPayment'),
-	})
+	}),
+	// authorized Affiliate Mutations
+	...authAccess({sourceUserType: 'Affiliate'}, {
+		affiliateResendActivationLink: UserTC.getResolver('sendUserActivationLink'),
+		affiliateCreateCoupon: AffiliateTC.getResolver('createCoupon'),
+		affiliateUpdateSelf: updateSelf({TC: AffiliateTC}),
+	}),
 });
 
 const schema = GQC.buildSchema();

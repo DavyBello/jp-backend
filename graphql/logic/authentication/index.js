@@ -1,0 +1,2 @@
+
+exports.authAccess = require('./authAccess')

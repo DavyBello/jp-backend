@@ -1,0 +1,46 @@
+{
+  "name": "jp-backend",
+  "version": "0.0.0",
+  "private": true,
+  "author": "DavyBelo <bellooladipupo41@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.0.0-beta.5",
+    "apollo-server-express": "^2.0.0-beta.5",
+    "async": "2.1.4",
+    "bcrypt": "^2.0.0",
+    "cors": "^2.8.4",
+    "dotenv": "4.0.0",
+    "express-jwt": "^5.3.0",
+    "graphql": "^0.13.0",
+    "graphql-compose": "^4.3.0",
+    "graphql-compose-connection": "^3.0.1",
+    "graphql-compose-mongoose": "^4.1.1",
+    "graphql-compose-pagination": "^3.0.1",
+    "graphql-subscriptions": "^0.5.6",
+    "graphql-tag": "^2.9.2",
+    "jsonwebtoken": "^8.1.1",
+    "keystone": "4.0.0-beta.8",
+    "keystone-email": "1.0.5",
+    "lodash": "^4.13.1",
+    "paystack": "^2.0.1",
+    "pug": "2.0.0-beta11",
+    "simple-youtube-api": "^5.0.1",
+    "socket.io": "^2.0.4",
+    "subscriptions-transport-ws": "^0.9.5"
+  },
+  "devDependencies": {
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-keystone": "3.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^5.1.1",
+    "nodemon": "^1.14.12"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "dev": "nodemon keystone.js",
+    "start": "NODE_ENV=production node keystone.js"
+  }
+}

@@ -1,0 +1,19 @@
+html
+	head
+	body
+		h1 Hi %recipient.firstName%,
+		p.text-larger An Affiliate has registered for #{brand}:
+		if affiliate.name || affiliate.email
+			p.text-larger Affiliate
+				if affiliate.name
+					| <strong> #{affiliate.name}</strong>
+				if affiliate.name && affiliate.email
+					|  (
+				if affiliate.email
+					| <a href="mailto:#{affiliate.email}">#{affiliate.email}</a>
+				if affiliate.name && affiliate.email
+					| )
+		if affiliate.phone
+			p.text-larger Phone: #{affiliate.phone}		
+		p.text-muted created at #{affiliate._.createdAt.format()}
+		p &nbsp;

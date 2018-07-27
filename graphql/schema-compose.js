@@ -79,8 +79,9 @@ GQC.rootMutation().addFields({
 	...authAccess({sourceUserType: 'Candidate'}, {
 		candidateResendActivationLink: UserTC.getResolver('sendUserActivationLink'),
 		candidateUpdateSelf: updateSelf({TC: CandidateTC}),
-		candidateFindOrCreateJpPaymentRecord: JpPaymentTC.getResolver('findOrCreateJpPayment'),
+		candidateFindOrCreateJpPaymentRecord: JpPaymentTC.getResolver('findOrCreateJpPaymentV2'),
 	}),
+
 	// authorized Affiliate Mutations
 	...authAccess({sourceUserType: 'Affiliate'}, {
 		affiliateResendActivationLink: UserTC.getResolver('sendUserActivationLink'),

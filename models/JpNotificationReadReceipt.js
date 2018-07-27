@@ -26,5 +26,5 @@ JpNotificationReadReceipt.add({
 /**
  * Registration
  */
-JpNotificationReadReceipt.defaultColumns = 'message, createdAt, receiversType, receivers';
+JpNotificationReadReceipt.defaultColumns = 'notification, user, createdAt';
 JpNotificationReadReceipt.register();

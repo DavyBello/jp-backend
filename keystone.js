@@ -53,14 +53,14 @@ keystone.set('nav', {
 	newsletter: 'JpNewsletter',
 	country: ['State', 'LocalGovernment'],
 	enquiries: 'JpGuestEnquiry',
-	users: ['keystoneJpAdmin', 'users'],
+	users: ['keystoneJpAdmin', 'User'],
 });
 
 // Configure cloudinary
 keystone.set('cloudinary config', process.env.CLOUDINARY_URL );
 
 keystone.set('brandDetails', {
-	brand: keystone.get('brand') || 'PRET',
+	brand: keystone.get('brand') || 'JP',
 	mailAddress: '22 Kumasi Cresent, Wuse 2, Abuja',
 	homepageUrl: process.env.FRONT_END_URL,
 	phone: '+234.818.855.5611',

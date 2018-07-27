@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
 const mailgun = require('mailgun-js')({apiKey: process.env.MAILGUN_API_KEY, domain: process.env.MAILGUN_DOMAIN});
 
-const schema = require('../graphql/schema-compose');
+const schema = require('../graphql/schema');
 
 const User = keystone.list('User').model;
 const Candidate = keystone.list('Candidate').model;

@@ -1,23 +1,22 @@
-var keystone = require('keystone');
-var Types = keystone.Field.Types;
+const keystone = require('keystone');
+const Types = keystone.Field.Types;
 
 /**
  * LocalGovernment Model
  * ==========
  */
-var LocalGovernment = new keystone.List('LocalGovernment', {
+const LocalGovernment = new keystone.List('LocalGovernment', {
     //track: true
 });
 
 LocalGovernment.add({
   name: { type: String, initial: true, index: true, required: true },
-  //wards: { type: Types.Relationship, ref: 'Ward', many: true },
+  state: { type: Types.Relationship, ref: 'State'},
 });
 
 LocalGovernment.relationship({ ref: 'State', path: 'state', refPath: 'locals' });
 /**
  * Registration
  */
-LocalGovernment.defaultSort = 'name';
-LocalGovernment.defaultColumns = 'name, locals';
+LocalGovernment.defaultColumns = 'name, state';
 LocalGovernment.register();

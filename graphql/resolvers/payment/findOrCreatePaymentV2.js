@@ -46,6 +46,7 @@ module.exports = {
                 const paymentData = {
                   paystackReference,
                   transactionDate: body.data.transaction_date,
+                  price: body.data.metadata.price_id,
                   madeBy: sourceUser._id,
                   amount: body.data.amount,
                   currency: body.data.currency

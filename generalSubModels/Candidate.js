@@ -18,7 +18,7 @@ Candidate.add('Candidate', {
 	firstName: { type: Types.Text, required: true, initial: true, index: true },
 	lastName: { type: Types.Text, required: true, initial: true, index: true },
 	phone: { type: Types.Text, initial: true, unique: true, sparse: true },
-	isActivated: { type: Boolean, default: false, noedit: true },	
+	isActivated: { type: Boolean, default: false, noedit: true },
 });
 
 //Model Hooks
@@ -67,10 +67,10 @@ Candidate.schema.methods.sendActivationLink = function () {
 			}).send({
 				to: [user.email],
 				from: {
-					name: 'MCC',
+					name: 'Job Profiling',
 					email: 'no-reply@mycarrerchoice.global',
 				},
-				subject: 'MCC Account Activation',
+				subject: 'Job Profiling Account Activation',
 				user,
 				brandDetails,
 				activationLink
@@ -88,7 +88,17 @@ Candidate.schema.methods.sendActivationLink = function () {
 /**
  * Relationships
  */
-Candidate.relationship({ ref: 'Payment', path: 'payments', refPath: 'madeBy' });
+ switch(keystone.get('brand')) {
+    case 'Job Profiling':
+			Candidate.relationship({ ref: 'JpPayment', path: 'payments', refPath: 'madeBy' });
+      break;
+    case 'PRET':
+			// Candidate.relationship({ ref: 'Payment', path: 'payments', refPath: 'madeBy' });
+      break;
+    case 'My Career Choice':
+			// Candidate.relationship({ ref: 'Payment', path: 'payments', refPath: 'madeBy' });
+      break;
+}
 
 
 /**

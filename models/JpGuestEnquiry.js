@@ -108,5 +108,5 @@ JpGuestEnquiry.schema.methods.sendConfirmationEmail = function () {
 }
 
 JpGuestEnquiry.defaultSort = '-createdAt';
-JpGuestEnquiry.defaultColumns = 'name, email, enquiryType, createdAt';
+JpGuestEnquiry.defaultColumns = 'name, email, createdAt';
 JpGuestEnquiry.register();

@@ -40,11 +40,11 @@ User.schema.pre('save', function (next) {
  * Relationships
  */
 // User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
-User.relationship({ ref: 'NotificationReadReceipt', path: 'readReceipts', refPath: 'user' });
+// User.relationship({ ref: 'NotificationReadReceipt', path: 'readReceipts', refPath: 'user' });
 
 
 /**
  * Registration
  */
-User.defaultColumns = 'name, email, canAccessKeystone, isAdmin';
+User.defaultColumns = 'name, email';
 User.register();
